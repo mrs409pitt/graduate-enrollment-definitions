@@ -430,7 +430,9 @@
                 <li><a href="#kpis">Cross-Funnel KPIs</a></li>
                 <li><a href="#terminology">Terminology</a></li>
                 <li><a href="#tools">Tools</a></li>
+                <li><a href="#crm-fields">CRM Data Fields</a></li>
                 <li><a href="#benchmarks">Benchmarks</a></li>
+                <li><a href="#quick-start">Quick Start</a></li>
             </ul>
         </div>
     </nav>
@@ -466,6 +468,10 @@
                 <a href="#tools" class="quick-link">
                     <div class="quick-link-title">🛠️ Tools</div>
                     <div style="font-size: 0.875rem; opacity: 0.9;">Salesforce, Marketing Cloud, and more</div>
+                </a>
+                <a href="#crm-fields" class="quick-link">
+                    <div class="quick-link-title">🗃️ CRM Data Fields</div>
+                    <div style="font-size: 0.875rem; opacity: 0.9;">Essential fields for tracking and attribution</div>
                 </a>
             </div>
 
@@ -1477,6 +1483,357 @@
             </div>
         </section>
 
+        <!-- CRM Data Fields -->
+        <section id="crm-fields" class="section">
+            <h2 class="section-title">CRM Data Fields Reference</h2>
+            
+            <div class="section-intro">
+                <p>Understanding which data fields to track in your <a href="#def-crm" style="color: var(--pitt-blue);">CRM</a> is essential for attribution, reporting, and decision-making. This section outlines the primary and secondary fields you need to answer: <strong>"Who is this person, what did they submit, and where did they come from?"</strong></p>
+            </div>
+
+            <!-- Primary Data Fields -->
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 1rem;">Primary Data Fields</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--gray-700);">These are the fields <strong>required</strong> to answer: "Who is this person, what did they submit, and where did they come from?"</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Purpose</th>
+                            <th>Field Name</th>
+                            <th>Example Value</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Person identity</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">EMPLID, CONTACT_ID</code></td>
+                            <td>0038b00002XyZQ2</td>
+                            <td>Stable identifier for the person</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#def-opportunity" style="color: var(--pitt-blue);">Opportunity</a> / lead record</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">OPPORTUNITY_ID</code></td>
+                            <td>0068b00001LmABC</td>
+                            <td>One inquiry/application instance</td>
+                        </tr>
+                        <tr>
+                            <td>Program interest</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">ACAD_PLAN, PROGRAM_DESCR</code></td>
+                            <td>Hybrid Doctor of Physical Therapy</td>
+                            <td>What the person asked about</td>
+                        </tr>
+                        <tr>
+                            <td>School / unit</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">ACAD_ORG_DESCR</code></td>
+                            <td>School of Health & Rehabilitation Sciences</td>
+                            <td>Reporting + routing</td>
+                        </tr>
+                        <tr>
+                            <td>Term / cohort</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">TERM_DESCR</code></td>
+                            <td>Fall 2026</td>
+                            <td>Enrollment analysis</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#def-lead" style="color: var(--pitt-blue);">Lead</a> create date</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">CREATED_DATE</code></td>
+                            <td>12/17/2025 2:21 PM</td>
+                            <td>When CRM record was created</td>
+                        </tr>
+                        <tr>
+                            <td>Lead status</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">STAGE_NAME</code></td>
+                            <td>Inquiry</td>
+                            <td>Funnel stage</td>
+                        </tr>
+                        <tr>
+                            <td>Form source</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">LEAD_SOURCE</code></td>
+                            <td>Website – Pitt Online</td>
+                            <td>Operational, not analytical</td>
+                        </tr>
+                        <tr>
+                            <td>UTM source</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">UTM_SOURCE</code></td>
+                            <td>google</td>
+                            <td><strong>Raw capture – never edit</strong></td>
+                        </tr>
+                        <tr>
+                            <td>UTM medium</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">UTM_MEDIUM</code></td>
+                            <td>cpc</td>
+                            <td><strong>Raw capture – never edit</strong></td>
+                        </tr>
+                        <tr>
+                            <td>UTM campaign</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">UTM_CAMPAIGN</code></td>
+                            <td>dpt_fall_2026</td>
+                            <td><strong>Raw capture – never edit</strong></td>
+                        </tr>
+                        <tr>
+                            <td>First source</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">FIRST_SOURCE</code></td>
+                            <td>reddit</td>
+                            <td><strong>Raw capture – never edit</strong></td>
+                        </tr>
+                        <tr>
+                            <td>First medium</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">FIRST_MEDIUM</code></td>
+                            <td>paid_social</td>
+                            <td><strong>Raw capture – never edit</strong></td>
+                        </tr>
+                        <tr>
+                            <td>First campaign</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">FIRST_CAMPAIGN</code></td>
+                            <td>dmsc_spring_2027</td>
+                            <td><strong>Raw capture – never edit</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Landing page URL</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">LANDING_PAGE_URL</code></td>
+                            <td>https://online.pitt.edu/programs/dpt-hybrid</td>
+                            <td>Page that drove conversion</td>
+                        </tr>
+                        <tr>
+                            <td>Referrer URL</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">REFERRER_URL</code></td>
+                            <td>https://www.google.com/</td>
+                            <td>Used when UTMs are missing</td>
+                        </tr>
+                        <tr>
+                            <td>Google click ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">GCLID</code></td>
+                            <td>EAIaIQobChMI…</td>
+                            <td>Paid ad join key</td>
+                        </tr>
+                        <tr>
+                            <td>Meta click ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">FBCLID</code></td>
+                            <td>IwAR2v…</td>
+                            <td>Paid social join key</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                    <div class="alert-title">📌 Why These Matter</div>
+                    <ul style="list-style-position: inside; margin-top: 0.5rem;">
+                        <li>The UTM set + click IDs + landing/referrer lets you attribute paid and non-paid reliably</li>
+                        <li>The first-touch + last-touch fields are enough to run common <a href="#def-source-attribution" style="color: var(--light-blue);">attribution models</a> (first, last, last non-direct)</li>
+                        <li>These fields enable you to QA drift between sessions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Secondary Data Fields -->
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 1rem;">Secondary Data Fields</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Helpful for insight, QA, and future modeling — not required to start. These fields improve understanding but are not blockers.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Purpose</th>
+                            <th>Field Name</th>
+                            <th>Example Value</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Anonymous web ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">ANON_ID</code></td>
+                            <td>anon_7f3c92b1</td>
+                            <td>Pre-form behavior tracking</td>
+                        </tr>
+                        <tr>
+                            <td>Session ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">SESSION_ID</code></td>
+                            <td>ga4_1734930221</td>
+                            <td>Groups pageviews</td>
+                        </tr>
+                        <tr>
+                            <td>Device type</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">DEVICE_TYPE</code></td>
+                            <td>Mobile</td>
+                            <td>UX insights</td>
+                        </tr>
+                        <tr>
+                            <td>Browser</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">BROWSER</code></td>
+                            <td>Chrome</td>
+                            <td>QA/debugging</td>
+                        </tr>
+                        <tr>
+                            <td>Operating system</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">OS</code></td>
+                            <td>iOS</td>
+                            <td>UX optimization</td>
+                        </tr>
+                        <tr>
+                            <td>Country</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">COUNTRY</code></td>
+                            <td>United States</td>
+                            <td>Regional reporting</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">STATE</code></td>
+                            <td>PA</td>
+                            <td>Regional reporting</td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">CITY</code></td>
+                            <td>Pittsburgh</td>
+                            <td>Regional reporting</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing channel</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">MARKETING_CHANNEL</code></td>
+                            <td>Paid Search</td>
+                            <td>Normalized grouping</td>
+                        </tr>
+                        <tr>
+                            <td>Assist sources</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">ASSIST_SOURCES</code></td>
+                            <td>Organic → Email → Paid Search</td>
+                            <td>Multi-touch insight</td>
+                        </tr>
+                        <tr>
+                            <td>Touchpoint count</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">TOUCHPOINT_COUNT</code></td>
+                            <td>3</td>
+                            <td>Journey complexity</td>
+                        </tr>
+                        <tr>
+                            <td>Lead score</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">LEAD_SCORE</code></td>
+                            <td>82</td>
+                            <td>Prioritization</td>
+                        </tr>
+                        <tr>
+                            <td>Engaged flag</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">ENGAGED_FLAG</code></td>
+                            <td>Yes</td>
+                            <td>Quality signal</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#def-campaign-sf" style="color: var(--pitt-blue);">Campaign</a> ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">CAMPAIGN_ID</code></td>
+                            <td>7018b000000X9Y</td>
+                            <td>Platform join</td>
+                        </tr>
+                        <tr>
+                            <td>Ad group ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">AD_GROUP_ID</code></td>
+                            <td>987654321</td>
+                            <td>Paid media join</td>
+                        </tr>
+                        <tr>
+                            <td>Ad ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">AD_ID</code></td>
+                            <td>654321987</td>
+                            <td>Creative analysis</td>
+                        </tr>
+                        <tr>
+                            <td>Estimated cost</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">COST</code></td>
+                            <td>$43.27</td>
+                            <td>ROI modeling</td>
+                        </tr>
+                        <tr>
+                            <td>Consent status</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">CONSENT_STATUS</code></td>
+                            <td>Opted In</td>
+                            <td>Compliance</td>
+                        </tr>
+                        <tr>
+                            <td>Consent date</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">CONSENT_DATE</code></td>
+                            <td>12/17/2025</td>
+                            <td>Compliance</td>
+                        </tr>
+                        <tr>
+                            <td>Merged record ID</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">MERGED_RECORD_ID</code></td>
+                            <td>0038b00002XyZQ2</td>
+                            <td>Dedup audit</td>
+                        </tr>
+                        <tr>
+                            <td>Data quality flags</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">DATA_QUALITY_FLAG</code></td>
+                            <td>Missing First Touch</td>
+                            <td>QA automation</td>
+                        </tr>
+                        <tr>
+                            <td>Internal notes</td>
+                            <td><code style="background: var(--gray-100); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">NOTES</code></td>
+                            <td>Asked about clinical placement locations</td>
+                            <td>Human context</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Implementation Rules -->
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 1rem;">Simple Implementation Rules</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--gray-700); font-style: italic;">To avoid problems later, follow these three critical rules:</p>
+
+                <div style="display: grid; gap: 1.5rem;">
+                    <!-- Rule 1 -->
+                    <div style="background: linear-gradient(135deg, var(--pitt-blue) 0%, var(--dark-blue) 100%); color: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <div style="background: var(--pitt-gold); color: var(--gray-900); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;">1</div>
+                            <h4 style="font-size: 1.25rem; font-weight: 700; margin: 0;">Never change how someone originally found you</h4>
+                        </div>
+                        <p style="margin-bottom: 1rem; line-height: 1.7;">When a person fills out a form, you capture where they came from (for example: Google, an ad, an email, or another website). That original information should be saved exactly as it came in and <strong>never edited</strong>, even if you later decide to label or interpret it differently.</p>
+                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 6px; border-left: 4px solid var(--pitt-gold);">
+                            <p style="margin: 0; font-style: italic;">💡 <strong>Think of this as the receipt.</strong> You don't rewrite receipts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Rule 2 -->
+                    <div style="background: linear-gradient(135deg, #00a86b 0%, #008055 100%); color: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <div style="background: var(--pitt-gold); color: var(--gray-900); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;">2</div>
+                            <h4 style="font-size: 1.25rem; font-weight: 700; margin: 0;">It's okay to change your interpretation of the data</h4>
+                        </div>
+                        <p style="margin-bottom: 1rem; line-height: 1.7;">How you credit a lead (first click, last click, best click, etc.) can change over time as your reporting improves. Those results should be easy to update or recalculate <strong>without touching the original source information</strong>.</p>
+                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 6px; border-left: 4px solid var(--pitt-gold);">
+                            <p style="margin: 0; font-style: italic;">💡 <strong>The facts stay the same; your analysis can evolve.</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Rule 3 -->
+                    <div style="background: linear-gradient(135deg, #9b59b6 0%, #7d3c98 100%); color: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <div style="background: var(--pitt-gold); color: var(--gray-900); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;">3</div>
+                            <h4 style="font-size: 1.25rem; font-weight: 700; margin: 0;">Use the same labels everywhere from day one</h4>
+                        </div>
+                        <p style="margin-bottom: 1rem; line-height: 1.7;">Decide early what words you'll use for things like:</p>
+                        <ul style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.7;">
+                            <li><a href="#def-lead" style="color: white; text-decoration: underline;">Lead</a> status (New, Working, Enrolled)</li>
+                            <li>Marketing channels (Paid Search, Paid Social, Email)</li>
+                            <li>Consent status (Opted In, Opted Out)</li>
+                        </ul>
+                        <p style="margin-bottom: 1rem; line-height: 1.7;">If everyone uses the same labels consistently, reports stay clean. If not, you'll spend months fixing data instead of learning from it.</p>
+                        <div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 6px; border-left: 4px solid var(--pitt-gold);">
+                            <p style="margin: 0; font-style: italic;">💡 <strong>Agree on the vocabulary before you start writing the story.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <div class="alert-title">✅ Best Practice Summary</div>
+                <p>Start with primary fields only. Add secondary fields as your reporting matures. Most importantly: <strong>never edit raw source data</strong> and <strong>use consistent labels from day one</strong>. These two practices will save you countless hours of data cleanup later.</p>
+            </div>
+        </section>
+
         <!-- Benchmarks -->
         <section id="benchmarks" class="section">
             <h2 class="section-title">Benchmarks & Targets</h2>
@@ -1567,6 +1924,69 @@
             </div>
         </section>
 
+        <!-- Quick Start -->
+        <section id="quick-start" class="section">
+            <h2 class="section-title">30-Day Quick Start Guide</h2>
+            
+            <div class="section-intro">
+                <p>New to enrollment metrics? Follow this plan to get up and running with data-driven enrollment management.</p>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 1: Establish Baseline</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Know where you stand today</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Pull current numbers for all 6 cross-funnel KPIs</li>
+                    <li>Document where each metric comes from</li>
+                    <li>Create simple dashboard or spreadsheet</li>
+                    <li>Share baseline with your team</li>
+                </ol>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 2: Set Targets</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Define success</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Compare your baseline to benchmarks</li>
+                    <li>Set realistic 3-month improvement goals</li>
+                    <li>Assign ownership for each KPI</li>
+                    <li>Schedule weekly 30-minute metric review</li>
+                </ol>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 3: Identify Quick Wins</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Get early momentum</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Find your biggest gap vs. benchmark</li>
+                    <li>Pick ONE tactical improvement to implement</li>
+                    <li>Launch the improvement and track impact</li>
+                    <li>Document what you learn</li>
+                </ol>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 4: Build Cadence</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Make metrics routine</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Confirm weekly metric review is happening</li>
+                    <li>Create decision framework: "If X drops below Y, we do Z"</li>
+                    <li>Train team on using metrics for decisions</li>
+                    <li>Plan Month 2 improvements based on learnings</li>
+                </ol>
+            </div>
+
+            <div class="alert alert-success">
+                <div class="alert-title">💪 Remember: Start Small, Think Big</div>
+                <p>You don't need perfect data or perfect dashboards to start using metrics effectively. Pick ONE metric to improve this month. Track it weekly. Make decisions based on what you see. Learn. Adjust. Repeat.</p>
+                <p style="margin-top: 1rem;"><strong>Small improvements compound over time into significant results.</strong></p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#top" style="color: var(--pitt-blue); text-decoration: none; font-weight: 600;">↑ Back to Top</a>
+            </div>
+        </section>
+
     </div>
 
     <!-- Footer -->
@@ -1575,6 +1995,7 @@
             <h3 style="color: var(--pitt-gold); margin-bottom: 1rem;">University of Pittsburgh Graduate Studies</h3>
             <p style="color: var(--gray-300); margin-bottom: 0.5rem;">Enrollment Management & Marketing</p>
             <p style="color: var(--gray-300); margin-bottom: 0.5rem;">Version 1.0 | December 2025</p>
+            <p style="color: var(--gray-300); margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-700);">For questions or support: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1b6a3b0b5fcb4bfa3bebdbdbcb4bfa591a1b8a5a5ffb4b5a4">[email&#160;protected]</a></p>
             <p style="color: var(--gray-300); margin-top: 0.5rem; font-size: 0.875rem;">© 2025 University of Pittsburgh. All rights reserved.</p>
         </div>
     </footer>
@@ -1626,3 +2047,10 @@
                 }
             });
         });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.nav');
+            const navList = document.getElementById('navList');
+            
+            if (!nav.contains(event.target
