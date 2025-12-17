@@ -2007,7 +2007,7 @@
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
 
     <!-- JavaScript -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Navigation Toggle
         function toggleNav() {
             const navList = document.getElementById('navList');
@@ -2043,9 +2043,14 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile nav after clicking a link
                     if (window.innerWidth <= 768) {
-                        document.getElementById('navList').classList.remove('active');
-                        document.querySelector('.nav-toggle').classList.remove('active');
+                        const navList = document.getElementById('navList');
+                        const navToggle = document.querySelector('.nav-toggle');
+                        if (navList && navToggle) {
+                            navList.classList.remove('active');
+                            navToggle.classList.remove('active');
+                        }
                     }
                 }
             });
@@ -2055,5 +2060,16 @@
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('.nav');
             const navList = document.getElementById('navList');
+            const navToggle = document.querySelector('.nav-toggle');
             
-            if (!nav.contains(event.target
+            if (nav && navList && navToggle) {
+                if (!nav.contains(event.target) && navList.classList.contains('active')) {
+                    navList.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
