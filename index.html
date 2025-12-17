@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduate Enrollment Encyclopedia | University of Pittsburgh</title>
+    <meta name="description" content="Comprehensive reference guide combining enrollment metrics, terminology, and best practices for University of Pittsburgh marketing and enrollment teams">
+    
+    <style>
+        /* CSS Variables for Pitt Branding */
+        :root {
+            --pitt-blue: #003594;
+            --pitt-gold: #FFB81C;
+            --dark-blue: #001f54;
+            --light-blue: #4A90E2;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: linear-gradient(135deg, var(--gray-50) 0%, #fff 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--pitt-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .header-meta {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            border-bottom: 2px solid var(--gray-200);
+            position: sticky;
+            top: 7rem;
+            z-index: 90;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: var(--pitt-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .nav-toggle::after {
+            content: '▼';
+            float: right;
+        }
+
+        .nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 1rem 1.25rem;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-list a:hover {
+            color: var(--pitt-blue);
+            background: var(--gray-50);
+            border-bottom-color: var(--pitt-gold);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            scroll-margin-top: 10rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--pitt-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--pitt-gold);
+        }
+
+        .section-intro {
+            background: var(--gray-50);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--pitt-blue);
+        }
+
+        /* Journey Stages */
+        .journey-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stage {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .stage:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--pitt-blue);
+        }
+
+        .stage-number {
+            position: absolute;
+            top: -12px;
+            left: 1rem;
+            background: var(--pitt-blue);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .stage-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--pitt-blue);
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Metric Cards */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            border-color: var(--pitt-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .metric-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--pitt-blue);
+            margin-bottom: 1rem;
+        }
+
+        .metric-formula {
+            background: var(--gray-50);
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            margin: 1rem 0;
+            border-left: 3px solid var(--pitt-blue);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: var(--shadow-sm);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .data-table thead {
+            background: var(--pitt-blue);
+            color: white;
+        }
+
+        .data-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--gray-50);
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            border-color: var(--light-blue);
+            color: #1e40af;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            border-color: var(--success);
+            color: #065f46;
+        }
+
+        .alert-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quick-link {
+            background: linear-gradient(135deg, var(--pitt-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-md);
+        }
+
+        .quick-link:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quick-link-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 1rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--pitt-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 80;
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .nav-list.active {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .journey-stages, .metric-grid, .quick-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Graduate Enrollment Encyclopedia</h1>
+            <div class="subtitle">Comprehensive Reference Guide for Recruitment & Enrollment Metrics</div>
+            <div class="header-meta">University of Pittsburgh Graduate Studies | Version 1.0 | December 2025</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <button class="nav-toggle" onclick="toggleNav()">Navigation Menu</button>
+            <ul class="nav-list" id="navList">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#journey">Student Journey</a></li>
+                <li><a href="#kpis">Cross-Funnel KPIs</a></li>
+                <li><a href="#terminology">Terminology</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#benchmarks">Benchmarks</a></li>
+                <li><a href="#quick-start">Quick Start</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Overview -->
+        <section id="overview" class="section">
+            <h2 class="section-title">How to Use This Guide</h2>
+            
+            <div class="section-intro">
+                <p><strong>Welcome!</strong> This comprehensive encyclopedia combines two essential documents into one unified resource for understanding and managing graduate enrollment at the University of Pittsburgh. Whether you're new to enrollment management or looking for specific metric definitions, this guide has you covered.</p>
+            </div>
+
+            <div class="quick-links">
+                <a href="#journey" class="quick-link">
+                    <div class="quick-link-title">🎯 Student Journey</div>
+                    <div style="font-size: 0.875rem; opacity: 0.9;">Understand the 9 stages from awareness to enrollment</div>
+                </a>
+                <a href="#kpis" class="quick-link">
+                    <div class="quick-link-title">📊 Key Metrics</div>
+                    <div style="font-size: 0.875rem; opacity: 0.9;">6 cross-funnel KPIs that matter most</div>
+                </a>
+                <a href="#terminology" class="quick-link">
+                    <div class="quick-link-title">📖 Definitions</div>
+                    <div style="font-size: 0.875rem; opacity: 0.9;">Complete A-Z glossary of terms</div>
+                </a>
+                <a href="#tools" class="quick-link">
+                    <div class="quick-link-title">🛠️ Tools</div>
+                    <div style="font-size: 0.875rem; opacity: 0.9;">Salesforce, Marketing Cloud, and more</div>
+                </a>
+            </div>
+
+            <div class="alert alert-info">
+                <div class="alert-title">📱 Mobile-Friendly Design</div>
+                <p>This guide is optimized for all devices. Access it on your phone, tablet, or desktop. Use the navigation menu to quickly jump to any section.</p>
+            </div>
+        </section>
+
+        <!-- Student Journey -->
+        <section id="journey" class="section">
+            <h2 class="section-title">The Graduate Enrollment Funnel</h2>
+            
+            <div class="section-intro">
+                <p>The graduate enrollment funnel represents the complete journey from first awareness through matriculation. Understanding each stage and the conversion points between them is essential for managing enrollment effectively.</p>
+            </div>
+
+            <div class="journey-stages">
+                <div class="stage">
+                    <div class="stage-number">1</div>
+                    <div class="stage-title">Awareness</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Prospective students first become aware of your institution and graduate programs.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">2</div>
+                    <div class="stage-title">Consider</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Prospects actively research your programs and seek detailed information.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">3</div>
+                    <div class="stage-title">Engage</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Deeper exploration of specific programs and building relationships.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">4</div>
+                    <div class="stage-title">Decision</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Serious evaluation of your programs against alternatives.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">5</div>
+                    <div class="stage-title">Applying</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Actively working on or submitting applications.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">6</div>
+                    <div class="stage-title">Admissions</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Applications under review and admission decisions being made.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">7</div>
+                    <div class="stage-title">Decision/Offer</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Admitted students evaluating offers and making final decisions.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">8</div>
+                    <div class="stage-title">Accepts/Deposits</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Students accept offers and submit enrollment deposits.</p>
+                </div>
+
+                <div class="stage">
+                    <div class="stage-number">9</div>
+                    <div class="stage-title">Enroll</div>
+                    <p style="font-size: 0.875rem; color: var(--gray-700);">Complete enrollment requirements and officially matriculate.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <div class="alert-title">💡 Why Small Improvements = Big Results</div>
+                <p>Improving inquiry→application from 15% to 17% (just 2 percentage points) yields 20 additional applicants per 1,000 inquiries. Across 10 programs, that's potentially 10 more enrolled students - significant revenue impact!</p>
+            </div>
+        </section>
+
+        <!-- Cross-Funnel KPIs -->
+        <section id="kpis" class="section">
+            <h2 class="section-title">6 Cross-Funnel KPIs That Matter Most</h2>
+            
+            <div class="section-intro">
+                <p>These six metrics span multiple funnel stages and provide the most comprehensive view of enrollment performance.</p>
+            </div>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <h3 class="metric-title">1. <a href="#def-funnel-conversion-rate" style="color: var(--pitt-blue); text-decoration: none;">Funnel Conversion Rate</a></h3>
+                    <p>The percentage of <a href="#def-prospect" style="color: var(--pitt-blue);">prospects</a> who advance from one funnel stage to the next.</p>
+                    <div class="metric-formula">(Number Advanced ÷ Number in Stage) × 100</div>
+                    <p style="margin-top: 1rem; font-size: 0.875rem;"><strong>Benchmarks:</strong> <a href="#def-inquiry-to-application" style="color: var(--pitt-blue);">Inquiry→Application</a>: 13-18% | <a href="#def-application-completion-rate" style="color: var(--pitt-blue);">App Completion</a>: 50-60% | <a href="#def-offer-to-deposit" style="color: var(--pitt-blue);">Offer→Deposit</a>: 60-70%</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3 class="metric-title">2. <a href="#def-days-between-stages" style="color: var(--pitt-blue); text-decoration: none;">Days Between Stages</a></h3>
+                    <p>The average number of days for a <a href="#def-prospect" style="color: var(--pitt-blue);">prospect</a> to move from one stage to the next (<a href="#def-pipeline-velocity" style="color: var(--pitt-blue);">Pipeline Velocity</a>).</p>
+                    <div class="metric-formula">Average (Date Next Stage - Date Current Stage)</div>
+                    <p style="margin-top: 1rem; font-size: 0.875rem;"><strong>Targets:</strong> Inquiry→App: ≤30 days | App→Decision: <14 days</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3 class="metric-title">3. <a href="#def-cost-per-stage" style="color: var(--pitt-blue); text-decoration: none;">Cost per Stage Transition</a></h3>
+                    <p>Total marketing and recruitment expenditure required to move one student from one stage to the next.</p>
+                    <div class="metric-formula">Total Stage Spend ÷ Number of Transitions</div>
+                    <p style="margin-top: 1rem; font-size: 0.875rem;"><strong>Benchmarks:</strong> <a href="#def-cost-per-lead" style="color: var(--pitt-blue);">Cost/Inquiry</a>: $140 avg | <a href="#def-cost-per-enrolled" style="color: var(--pitt-blue);">Cost/Enrolled</a>: $2,850 avg</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3 class="metric-title">4. <a href="#def-ltv-cac" style="color: var(--pitt-blue); text-decoration: none;">LTV:CAC Ratio</a></h3>
+                    <p>The ratio of Lifetime Value (total revenue from a student) to <a href="#def-cac" style="color: var(--pitt-blue);">Customer Acquisition Cost</a>.</p>
+                    <div class="metric-formula">Lifetime Value ÷ Customer Acquisition Cost</div>
+                    <p style="margin-top: 1rem; font-size: 0.875rem;"><strong>Targets:</strong> Minimum: 3:1 | Healthy: 5:1 | Excellent: 7:1+</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3 class="metric-title">5. <a href="#def-lead-quality" style="color: var(--pitt-blue); text-decoration: none;">Lead Quality by Channel</a></h3>
+                    <p>How effectively each marketing channel generates leads that convert deeper into the funnel and ultimately enroll.</p>
+                    <div class="metric-formula">(Conversion Rate × Volume) ÷ Cost</div>
+                    <p style="margin-top: 1rem; font-size: 0.875rem;"><strong>Track:</strong> Inquiry volume, <a href="#def-conversion-rate" style="color: var(--pitt-blue);">conversion rates</a>, cost per enrolled by channel</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3 class="metric-title">6. <a href="#def-source-attribution" style="color: var(--pitt-blue); text-decoration: none;">Source-to-Enrollment Attribution</a></h3>
+                    <p>Full-funnel tracking connecting each enrolled student back to their original marketing source and all touchpoints.</p>
+                    <div class="metric-formula">UTM tracking + multi-touch attribution</div>
+                    <p style="margin-top: 1rem; font-size: 0.875rem;"><strong>Models:</strong> First-touch, Last-touch, Multi-touch, Time-decay</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminology -->
+        <section id="terminology" class="section">
+            <h2 class="section-title">Complete A-Z Terminology</h2>
+            
+            <div class="section-intro">
+                <p>Master this terminology to speak the language of enrollment management fluently. Click any term throughout this guide to jump to its definition.</p>
+            </div>
+
+            <!-- Compact definition style -->
+            <style>
+                .def { background: #fff; border-left: 3px solid var(--pitt-blue); padding: 0.75rem 1rem; margin-bottom: 0.75rem; border-radius: 4px; }
+                .def h4 { font-size: 1rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.25rem; }
+                .def p { font-size: 0.875rem; color: var(--gray-700); margin: 0; }
+                .def-formula { background: var(--gray-50); padding: 0.5rem; border-radius: 4px; font-family: monospace; font-size: 0.8125rem; margin-top: 0.5rem; }
+            </style>
+
+            <div class="def" id="def-ab-testing">
+                <h4>A/B Testing</h4>
+                <p>A method of comparing two versions of a marketing element (subject line, email content, landing page, call-to-action) to determine which performs better.</p>
+            </div>
+
+            <div class="def" id="def-acceptance-rate">
+                <h4>Acceptance Rate (Admit Rate)</h4>
+                <p>The percentage of applicants offered admission to a program.</p>
+                <div class="def-formula">(Number Admitted ÷ Total Applicants) × 100</div>
+            </div>
+
+            <div class="def" id="def-activity">
+                <h4>Activity (Salesforce)</h4>
+                <p>A recordable action in Salesforce related to a lead, contact, or opportunity, such as an email sent, phone call made, meeting held, or task completed.</p>
+            </div>
+
+            <div class="def" id="def-admit">
+                <h4>Admit</h4>
+                <p>An applicant who has been offered admission to a program. Also called "admitted student" or "accepted student."</p>
+            </div>
+
+            <div class="def" id="def-affiliation">
+                <h4>Affiliation (Salesforce)</h4>
+                <p>A Salesforce record that creates a connection or relationship between a contact (person) and an account (school, department, or organization).</p>
+            </div>
+
+            <div class="def" id="def-applicant">
+                <h4>Applicant</h4>
+                <p>A person who has submitted an application for admission to a graduate program.</p>
+            </div>
+
+            <div class="def" id="def-application-completion-rate">
+                <h4>Application Completion Rate</h4>
+                <p>The percentage of started applications that are successfully submitted.</p>
+                <div class="def-formula">(Completed Applications ÷ Started Applications) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Benchmark:</strong> 50-60%</p>
+            </div>
+
+            <div class="def" id="def-application-deadline">
+                <h4>Application Deadline</h4>
+                <p>The date by which a completed application must be submitted for consideration. Graduate programs may have multiple deadlines (priority, regular, rolling).</p>
+            </div>
+
+            <div class="def" id="def-attrition-rate">
+                <h4>Attrition Rate</h4>
+                <p>The percentage of students who leave a program before completing their degree.</p>
+                <div class="def-formula">(Students Who Left ÷ Initial Cohort) × 100</div>
+            </div>
+
+            <div class="def" id="def-audience-builder">
+                <h4>Audience Builder (Marketing Cloud)</h4>
+                <p>A Marketing Cloud tool used to create, segment, and target specific groups of prospective or current students based on defined criteria.</p>
+            </div>
+
+            <div class="def" id="def-automation-studio">
+                <h4>Automation Studio (Marketing Cloud)</h4>
+                <p>A Marketing Cloud feature for automating repetitive marketing tasks and processes, such as sending scheduled emails, importing data, or updating contact lists.</p>
+            </div>
+
+            <div class="def" id="def-best-practices">
+                <h4>Best Practices</h4>
+                <p>Proven strategies, tactics, and approaches that consistently produce superior results in recruitment and enrollment management.</p>
+            </div>
+
+            <div class="def" id="def-cac">
+                <h4>CAC (Customer Acquisition Cost)</h4>
+                <p>The total cost to enroll one student, including all marketing, recruitment, and related expenses.</p>
+                <div class="def-formula">Total Marketing & Recruitment Spend ÷ Number of Enrolled Students</div>
+                <p style="margin-top: 0.5rem;"><strong>Graduate Avg:</strong> $2,850</p>
+            </div>
+
+            <div class="def" id="def-campaign-mc">
+                <h4>Campaign (Marketing Cloud)</h4>
+                <p>A coordinated marketing initiative in Marketing Cloud, typically involving planning, execution, and tracking of multiple activities (emails, social media, ads) directed at a target audience to achieve a specific goal.</p>
+            </div>
+
+            <div class="def" id="def-campaign-sf">
+                <h4>Campaign (Salesforce)</h4>
+                <p>A Salesforce feature used to plan, manage, track, and analyze marketing efforts and communications directed at specific audiences in the recruitment pipeline.</p>
+            </div>
+
+            <div class="def" id="def-case">
+                <h4>Case (Salesforce)</h4>
+                <p>A Salesforce record representing a student question, issue, concern, or feedback that needs to be tracked, managed, and resolved.</p>
+            </div>
+
+            <div class="def" id="def-click-through-rate">
+                <h4>Click-Through Rate (CTR)</h4>
+                <p>The percentage of email recipients who click on one or more links in an email.</p>
+                <div class="def-formula">(Clicks ÷ Delivered Emails) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Benchmark:</strong> 2.5-3.5%</p>
+            </div>
+
+            <div class="def" id="def-contact">
+                <h4>Contact (Salesforce)</h4>
+                <p>A Salesforce record representing an individual person, typically a prospective student, applicant, current student, or alumnus.</p>
+            </div>
+
+            <div class="def" id="def-contact-builder">
+                <h4>Contact Builder (Marketing Cloud)</h4>
+                <p>A Marketing Cloud feature for managing, organizing, and viewing all contact data, including attributes, relationships, and preferences.</p>
+            </div>
+
+            <div class="def" id="def-content-builder">
+                <h4>Content Builder (Marketing Cloud)</h4>
+                <p>A drag-and-drop editor in Marketing Cloud for creating, storing, and managing marketing content (emails, landing pages, images, text blocks).</p>
+            </div>
+
+            <div class="def" id="def-conversion-rate">
+                <h4>Conversion Rate</h4>
+                <p>The percentage of individuals who complete a desired action or advance from one stage to the next in the enrollment funnel.</p>
+                <div class="def-formula">(Number Who Converted ÷ Total Number in Stage) × 100</div>
+            </div>
+
+            <div class="def" id="def-cost-per-enrolled">
+                <h4>Cost per Enrolled Student (CPE)</h4>
+                <p>Same as Customer Acquisition Cost (CAC). The total cost to recruit and enroll one student.</p>
+                <div class="def-formula">Total Marketing & Recruitment Spend ÷ Number of Enrolled Students</div>
+            </div>
+
+            <div class="def" id="def-cost-per-lead">
+                <h4>Cost per Lead (CPL)</h4>
+                <p>The average cost to generate one inquiry or lead.</p>
+                <div class="def-formula">Marketing Spend ÷ Number of Inquiries</div>
+                <p style="margin-top: 0.5rem;"><strong>Average:</strong> $140</p>
+            </div>
+
+            <div class="def" id="def-cost-per-stage">
+                <h4>Cost per Stage Transition</h4>
+                <p>The cost to move one prospect from one stage of the funnel to the next.</p>
+                <div class="def-formula">Stage Marketing Spend ÷ Number Who Advanced to Next Stage</div>
+            </div>
+
+            <div class="def" id="def-crm">
+                <h4>CRM (Customer Relationship Management)</h4>
+                <p>A technology platform for managing all interactions and relationships with current and prospective students throughout their journey. At Pitt, Salesforce serves as the primary CRM.</p>
+            </div>
+
+            <div class="def" id="def-dashboard">
+                <h4>Dashboard (Salesforce)</h4>
+                <p>A visual display of key data points, metrics, and charts created from Salesforce reports, used to monitor recruitment and enrollment performance at a glance.</p>
+            </div>
+
+            <div class="def" id="def-data-extensions">
+                <h4>Data Extensions (Marketing Cloud)</h4>
+                <p>Tables within Marketing Cloud that store data, such as student/contact information, used for segmentation, personalization, and journey orchestration.</p>
+            </div>
+
+            <div class="def" id="def-days-between-stages">
+                <h4>Days Between Stages (Pipeline Velocity)</h4>
+                <p>The average number of days it takes for a prospect to move from one funnel stage to the next.</p>
+                <div class="def-formula">Average (Date Entered Next Stage - Date Entered Current Stage)</div>
+            </div>
+
+            <div class="def" id="def-deferred-admission">
+                <h4>Deferred Admission</h4>
+                <p>When an admitted student requests to postpone enrollment to a future term. The student's admission offer remains valid for the deferred term.</p>
+            </div>
+
+            <div class="def" id="def-demonstrated-interest">
+                <h4>Demonstrated Interest</h4>
+                <p>Actions showing genuine interest in a program, such as campus visits, event attendance, engagement with communications, and interactions with admissions staff.</p>
+            </div>
+
+            <div class="def" id="def-deposit-to-enrollment">
+                <h4>Deposit to Enrollment Rate</h4>
+                <p>The percentage of students who deposit who actually matriculate and begin classes. Also known as "melt rate" when calculating the inverse.</p>
+                <div class="def-formula">(Number Enrolled ÷ Number Deposited) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Benchmark:</strong> 95%+</p>
+            </div>
+
+            <div class="def" id="def-dynamic-content">
+                <h4>Dynamic Content (Marketing Cloud)</h4>
+                <p>Email or web content that automatically changes based on the recipient's specific attributes, behaviors, or preferences, enabling personalized communication at scale.</p>
+            </div>
+
+            <div class="def" id="def-early-action">
+                <h4>Early Action</h4>
+                <p>An application option where students apply by an early deadline and receive an admission decision earlier than regular decision applicants, but are not required to commit.</p>
+            </div>
+
+            <div class="def" id="def-early-decision">
+                <h4>Early Decision</h4>
+                <p>A binding application option where students apply early and, if admitted, must enroll. Less common in graduate programs than undergraduate.</p>
+            </div>
+
+            <div class="def" id="def-email-open-rate">
+                <h4>Email Open Rate</h4>
+                <p>The percentage of delivered emails that are opened by recipients.</p>
+                <div class="def-formula">(Opens ÷ Delivered Emails) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Higher Ed Avg:</strong> 44%</p>
+            </div>
+
+            <div class="def" id="def-email-studio">
+                <h4>Email Studio (Marketing Cloud)</h4>
+                <p>The Marketing Cloud component dedicated to creating, sending, tracking, and analyzing email campaigns and communications.</p>
+            </div>
+
+            <div class="def" id="def-enrollment">
+                <h4>Enrollment</h4>
+                <p>The process where admitted students officially register and commit to attending. Also refers to the final count of students who begin classes.</p>
+            </div>
+
+            <div class="def" id="def-event-attendance-rate">
+                <h4>Event Attendance Rate</h4>
+                <p>The percentage of registrants who actually attend an event.</p>
+                <div class="def-formula">(Attendees ÷ Registrants) × 100</div>
+            </div>
+
+            <div class="def" id="def-financial-aid">
+                <h4>Financial Aid</h4>
+                <p>Funding provided to students to help pay for graduate education, including scholarships, assistantships, fellowships, grants, and loans.</p>
+            </div>
+
+            <div class="def" id="def-first-year-retention">
+                <h4>First-Year Retention</h4>
+                <p>The percentage of students who return for their second year of study.</p>
+                <div class="def-formula">(Students Returning for Year 2 ÷ Initial First-Year Cohort) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Graduate Avg:</strong> ~75.9%</p>
+            </div>
+
+            <div class="def" id="def-funnel-conversion-rate">
+                <h4>Funnel Conversion Rate</h4>
+                <p>The percentage who successfully move from one stage of the enrollment funnel to the next. One of the 6 critical cross-funnel KPIs.</p>
+            </div>
+
+            <div class="def" id="def-graduation-rate">
+                <h4>Graduation Rate</h4>
+                <p>The percentage of students who complete their degree within a specified timeframe (typically 6 years for master's programs).</p>
+                <p style="margin-top: 0.5rem;"><strong>Master's Avg:</strong> ~64.2%</p>
+            </div>
+
+            <div class="def" id="def-iers">
+                <h4>IERs (Individual Email Results)</h4>
+                <p>Records written into Salesforce documenting emails sent through Marketing Cloud to contacts or leads, including delivery and engagement metrics.</p>
+            </div>
+
+            <div class="def" id="def-inquiry-to-application">
+                <h4>Inquiry-to-Application Rate</h4>
+                <p>The percentage of inquiries who submit an application.</p>
+                <div class="def-formula">(Applicants ÷ Inquiries) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Benchmark:</strong> 13-18%</p>
+            </div>
+
+            <div class="def" id="def-integration">
+                <h4>Integration (Salesforce)</h4>
+                <p>The technical process of connecting Salesforce with other systems or platforms to enable data sharing and synchronized workflows. Key integration: Salesforce ↔ Marketing Cloud (data syncs every 15 minutes).</p>
+            </div>
+
+            <div class="def" id="def-interaction">
+                <h4>Interaction (Salesforce)</h4>
+                <p>A Salesforce record type where initial data is captured before it's processed and assigned to a Contact, Lead, or Opportunity.</p>
+            </div>
+
+            <div class="def" id="def-journey">
+                <h4>Journey (Marketing Cloud)</h4>
+                <p>An automated, personalized series of communications and touchpoints orchestrated through Marketing Cloud Journey Builder, designed to guide individuals through a specific experience based on their behaviors, attributes, and interactions.</p>
+            </div>
+
+            <div class="def" id="def-journey-builder">
+                <h4>Journey Builder (Marketing Cloud)</h4>
+                <p>A Marketing Cloud tool for designing, automating, and managing complex, multi-step, personalized marketing journeys that guide contacts through experiences based on their actions and attributes.</p>
+            </div>
+
+            <div class="def" id="def-lead">
+                <h4>Lead (Salesforce)</h4>
+                <p>A Salesforce record representing a potential student who has expressed interest but has not yet been qualified or converted into a Contact with an Opportunity. When qualified, Lead converts to Contact + Opportunity.</p>
+            </div>
+
+            <div class="def" id="def-lead-quality">
+                <h4>Lead Quality by Channel</h4>
+                <p>A measure of how effectively each marketing channel generates leads that convert deeper into the funnel and ultimately enroll. One of the 6 critical cross-funnel KPIs.</p>
+            </div>
+
+            <div class="def" id="def-ltv-cac">
+                <h4>LTV:CAC Ratio</h4>
+                <p>The ratio of Lifetime Value (total revenue from a student) to Customer Acquisition Cost (total cost to recruit and enroll them). One of the 6 critical cross-funnel KPIs.</p>
+                <div class="def-formula">Lifetime Value ÷ Customer Acquisition Cost</div>
+                <p style="margin-top: 0.5rem;"><strong>Targets:</strong> Minimum: 3:1 | Healthy: 5:1 | Excellent: 7:1+</p>
+            </div>
+
+            <div class="def" id="def-marketing-cloud">
+                <h4>Marketing Cloud</h4>
+                <p>Salesforce's digital marketing platform that enables personalized, automated, multi-channel marketing communications and customer journey management. Integrates with Salesforce CRM; data syncs every 15 minutes.</p>
+            </div>
+
+            <div class="def" id="def-matriculation">
+                <h4>Matriculation</h4>
+                <p>The formal process of entering as a student and beginning classes. An enrolled student who has matriculated.</p>
+            </div>
+
+            <div class="def" id="def-offer-to-deposit">
+                <h4>Offer to Deposit Yield</h4>
+                <p>The percentage of admitted students who submit an enrollment deposit.</p>
+                <div class="def-formula">(Number Deposited ÷ Number Admitted) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Benchmark:</strong> 60-70%</p>
+            </div>
+
+            <div class="def" id="def-opportunity">
+                <h4>Opportunity (Salesforce)</h4>
+                <p>A Salesforce record used to track the recruitment and application pipeline from a prospective student through to matriculation. Typically one opportunity per program application (student may have multiple Opportunities for different programs).</p>
+            </div>
+
+            <div class="def" id="def-opportunity-stages">
+                <h4>Opportunity Stages (Salesforce)</h4>
+                <p>The stages an opportunity moves through in Salesforce, typically: Prospective → In-Progress Application → Application → Admit → Deposit → Enrolled.</p>
+            </div>
+
+            <div class="def" id="def-pipeline-velocity">
+                <h4>Pipeline Velocity</h4>
+                <p>The speed at which prospects move through funnel stages. Measured as Days Between Stages. One of the 6 critical cross-funnel KPIs.</p>
+            </div>
+
+            <div class="def" id="def-predictive-intelligence">
+                <h4>Predictive Intelligence (Einstein Intelligence)</h4>
+                <p>Marketing Cloud's AI-powered tool that uses data analytics and machine learning to predict student behaviors, optimize send times, recommend content, and improve recruitment outcomes.</p>
+            </div>
+
+            <div class="def" id="def-prospect">
+                <h4>Prospect</h4>
+                <p>A potential student in the early awareness stage who has not yet submitted an inquiry or expressed formal interest.</p>
+            </div>
+
+            <div class="def" id="def-report">
+                <h4>Report (Salesforce)</h4>
+                <p>A structured query and display of Salesforce data, used to analyze recruitment and enrollment performance.</p>
+            </div>
+
+            <div class="def" id="def-response-time">
+                <h4>Response Time</h4>
+                <p>The time it takes for staff to respond to a prospect inquiry or question. Target: <24 hours (ideal: <4 hours).</p>
+            </div>
+
+            <div class="def" id="def-rfi">
+                <h4>RFI (Request for Information)</h4>
+                <p>A form submitted by a prospective student to request more information about a program. Creates an inquiry record in the CRM.</p>
+            </div>
+
+            <div class="def" id="def-rolling-admission">
+                <h4>Rolling Admission</h4>
+                <p>An admission policy where applications are reviewed as they are received, and decisions are made on an ongoing basis rather than on specific decision dates.</p>
+            </div>
+
+            <div class="def" id="def-salesforce">
+                <h4>Salesforce</h4>
+                <p>A cloud-based Customer Relationship Management (CRM) platform used to manage student data, track interactions, manage recruitment pipelines, and execute marketing campaigns. The primary CRM at the University of Pittsburgh.</p>
+            </div>
+
+            <div class="def" id="def-scholarship">
+                <h4>Scholarship</h4>
+                <p>Financial aid awarded to students based on merit, need, or other criteria. Does not need to be repaid.</p>
+            </div>
+
+            <div class="def" id="def-source-attribution">
+                <h4>Source-to-Enrollment Attribution</h4>
+                <p>Full-funnel tracking that connects each enrolled student back to their original marketing source and tracks all touchpoints along their journey. One of the 6 critical cross-funnel KPIs.</p>
+            </div>
+
+            <div class="def" id="def-stealth-applicant">
+                <h4>Stealth Applicant</h4>
+                <p>A student who applies without previously submitting an inquiry or engaging in the typical recruitment process.</p>
+            </div>
+
+            <div class="def" id="def-subscribers">
+                <h4>Subscribers (Marketing Cloud)</h4>
+                <p>Individuals in Marketing Cloud who have opted in to receive communications through email, SMS, or other channels.</p>
+            </div>
+
+            <div class="def" id="def-transcript">
+                <h4>Transcript</h4>
+                <p>An official record of a student's academic coursework and grades, required as part of most graduate applications.</p>
+            </div>
+
+            <div class="def" id="def-true-conversion-rate">
+                <h4>True Conversion Rate</h4>
+                <p>A conversion rate calculated based on qualified prospects only, excluding unqualified inquiries.</p>
+            </div>
+
+            <div class="def" id="def-turnaround-time">
+                <h4>Turnaround Time</h4>
+                <p>The time between when an action is initiated and when it's completed (e.g., from application submission to admission decision).</p>
+            </div>
+
+            <div class="def" id="def-waitlist">
+                <h4>Waitlist</h4>
+                <p>Qualified applicants who may be offered admission if spaces become available after initial offers have been made.</p>
+            </div>
+
+            <div class="def" id="def-website-sessions">
+                <h4>Website Sessions</h4>
+                <p>The number of visits to your website within a given timeframe. A session ends after 30 minutes of inactivity or at midnight.</p>
+            </div>
+
+            <div class="def" id="def-win-rate">
+                <h4>Win/Close Rate</h4>
+                <p>Same as Overall Win Rate. The percentage of applications that result in enrollment.</p>
+                <div class="def-formula">(Number Enrolled ÷ Number of Applicants) × 100</div>
+            </div>
+
+            <div class="def" id="def-yield-rate">
+                <h4>Yield Rate</h4>
+                <p>The percentage of admitted students who enroll.</p>
+                <div class="def-formula">(Number Enrolled ÷ Number Admitted) × 100</div>
+                <p style="margin-top: 0.5rem;"><strong>Benchmark:</strong> 60-70%</p>
+            </div>
+        </section>
+
+        <!-- Tools -->
+        <section id="tools" class="section">
+            <h2 class="section-title">Core Technology Tools</h2>
+            
+            <div class="section-intro">
+                <p>Understanding the tools in your enrollment technology stack is essential for effective data management and marketing execution.</p>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;"><a href="#def-salesforce" style="color: var(--pitt-blue); text-decoration: none;">Salesforce (CRM)</a></h3>
+                <p style="color: var(--gray-700); margin-bottom: 1rem;">Customer Relationship Management platform for managing student data, tracking interactions, and managing the recruitment pipeline.</p>
+                
+                <p style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">Key Objects:</p>
+                <ul style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li><strong><a href="#def-contact" style="color: var(--pitt-blue);">Contact</a>:</strong> Individual person record</li>
+                    <li><strong><a href="#def-lead" style="color: var(--pitt-blue);">Lead</a>:</strong> Early-stage prospect</li>
+                    <li><strong><a href="#def-opportunity" style="color: var(--pitt-blue);">Opportunity</a>:</strong> Tracks application pipeline</li>
+                    <li><strong><a href="#def-campaign-sf" style="color: var(--pitt-blue);">Campaign</a>:</strong> Plans and tracks marketing efforts</li>
+                </ul>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;"><a href="#def-marketing-cloud" style="color: var(--pitt-blue); text-decoration: none;">Marketing Cloud</a></h3>
+                <p style="color: var(--gray-700); margin-bottom: 1rem;">Digital marketing platform for creating, automating, and analyzing email campaigns and multi-channel <a href="#def-journey" style="color: var(--pitt-blue);">journeys</a>.</p>
+                
+                <p style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">Key Components:</p>
+                <ul style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li><strong><a href="#def-email-studio" style="color: var(--pitt-blue);">Email Studio</a>:</strong> Create and send campaigns</li>
+                    <li><strong><a href="#def-journey-builder" style="color: var(--pitt-blue);">Journey Builder</a>:</strong> Automated sequences</li>
+                    <li><strong><a href="#def-audience-builder" style="color: var(--pitt-blue);">Audience Builder</a>:</strong> Segment and target</li>
+                    <li><strong><a href="#def-content-builder" style="color: var(--pitt-blue);">Content Builder</a>:</strong> Manage templates</li>
+                </ul>
+                
+                <p style="margin-top: 1rem; background: var(--gray-50); padding: 0.75rem; border-radius: 6px; font-size: 0.875rem;"><strong><a href="#def-integration" style="color: var(--pitt-blue);">Integration</a>:</strong> Data syncs with <a href="#def-salesforce" style="color: var(--pitt-blue);">Salesforce</a> every 15 minutes</p>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Google Analytics</h3>
+                <p style="color: var(--gray-700); margin-bottom: 1rem;">Web analytics platform to track <a href="#def-website-sessions" style="color: var(--pitt-blue);">website traffic</a>, user behavior, and campaign effectiveness.</p>
+                
+                <p style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">Key Metrics to Track:</p>
+                <ul style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Sessions & Users (traffic volume)</li>
+                    <li>Traffic Sources (where visitors come from)</li>
+                    <li>Behavior Flow (path through website)</li>
+                    <li>Goal Completions (<a href="#def-rfi" style="color: var(--pitt-blue);">RFI</a> submissions, app starts)</li>
+                    <li>Campaign Performance (UTM tracking)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Benchmarks -->
+        <section id="benchmarks" class="section">
+            <h2 class="section-title">Benchmarks & Targets</h2>
+            
+            <div class="section-intro">
+                <p>Use these benchmarks as guidelines. Remember: your trends over time matter more than external comparisons. Performance varies based on program type, delivery mode, institution reputation, and market conditions.</p>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Conversion Point</th>
+                        <th>Benchmark Range</th>
+                        <th>Target</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#def-prospect" style="color: var(--pitt-blue);">Prospect</a> → Inquiry</td>
+                        <td>8-12%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#def-inquiry-to-application" style="color: var(--pitt-blue);">Inquiry → Application</a></td>
+                        <td>13-18%</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#def-application-completion-rate" style="color: var(--pitt-blue);">Application Completion</a></td>
+                        <td>50-60%</td>
+                        <td>55%</td>
+                    </tr>
+                    <tr>
+                        <td>Completed → <a href="#def-admit" style="color: var(--pitt-blue);">Admit</a></td>
+                        <td>60-70%</td>
+                        <td>65%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#def-offer-to-deposit" style="color: var(--pitt-blue);">Admit → Deposit</a></td>
+                        <td>60-70%</td>
+                        <td>65%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#def-deposit-to-enrollment" style="color: var(--pitt-blue);">Deposit → Enrolled</a></td>
+                        <td>95-100%</td>
+                        <td>97%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#def-win-rate" style="color: var(--pitt-blue);">Overall Win Rate</a></td>
+                        <td>3-4%</td>
+                        <td>3.5%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 2rem;">
+                <h3 style="font-size: 1.25rem; color: var(--pitt-blue); margin-bottom: 1rem;">Financial Benchmarks</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Minimum</th>
+                            <th>Target</th>
+                            <th>Excellent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#def-ltv-cac" style="color: var(--pitt-blue);">LTV:CAC Ratio</a></td>
+                            <td>3:1</td>
+                            <td>5:1</td>
+                            <td>7:1+</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#def-cost-per-lead" style="color: var(--pitt-blue);">Cost per Inquiry</a></td>
+                            <td colspan="3">$140 average</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#def-cost-per-enrolled" style="color: var(--pitt-blue);">Cost per Enrolled</a></td>
+                            <td colspan="3">$2,850 average</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quick Start -->
+        <section id="quick-start" class="section">
+            <h2 class="section-title">30-Day Quick Start Guide</h2>
+            
+            <div class="section-intro">
+                <p>New to enrollment metrics? Follow this plan to get up and running with data-driven enrollment management.</p>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 1: Establish Baseline</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Know where you stand today</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Pull current numbers for all 6 cross-funnel KPIs</li>
+                    <li>Document where each metric comes from</li>
+                    <li>Create simple dashboard or spreadsheet</li>
+                    <li>Share baseline with your team</li>
+                </ol>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 2: Set Targets</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Define success</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Compare your baseline to benchmarks</li>
+                    <li>Set realistic 3-month improvement goals</li>
+                    <li>Assign ownership for each KPI</li>
+                    <li>Schedule weekly 30-minute metric review</li>
+                </ol>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 3: Identify Quick Wins</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Get early momentum</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Find your biggest gap vs. benchmark</li>
+                    <li>Pick ONE tactical improvement to implement</li>
+                    <li>Launch the improvement and track impact</li>
+                    <li>Document what you learn</li>
+                </ol>
+            </div>
+
+            <div style="background: white; padding: 1.25rem; margin-bottom: 1.5rem; border-left: 4px solid var(--pitt-blue); border-radius: 6px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--pitt-blue); margin-bottom: 0.5rem;">Week 4: Build Cadence</h3>
+                <p style="color: var(--gray-700); margin-bottom: 0.5rem;"><strong>Goal:</strong> Make metrics routine</p>
+                <ol style="list-style-position: inside; color: var(--gray-700); padding-left: 0.5rem;">
+                    <li>Confirm weekly metric review is happening</li>
+                    <li>Create decision framework: "If X drops below Y, we do Z"</li>
+                    <li>Train team on using metrics for decisions</li>
+                    <li>Plan Month 2 improvements based on learnings</li>
+                </ol>
+            </div>
+
+            <div class="alert alert-success">
+                <div class="alert-title">💪 Remember: Start Small, Think Big</div>
+                <p>You don't need perfect data or perfect dashboards to start using metrics effectively. Pick ONE metric to improve this month. Track it weekly. Make decisions based on what you see. Learn. Adjust. Repeat.</p>
+                <p style="margin-top: 1rem;"><strong>Small improvements compound over time into significant results.</strong></p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 style="color: var(--pitt-gold); margin-bottom: 1rem;">University of Pittsburgh Graduate Studies</h3>
+            <p style="color: var(--gray-300); margin-bottom: 0.5rem;">Enrollment Management & Marketing</p>
+            <p style="color: var(--gray-300); margin-bottom: 0.5rem;">Version 1.0 | December 2025</p>
+            <p style="color: var(--gray-300); margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-700);">For questions or support: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1b6a3b0b5fcb4bfa3bebdbdbcb4bfa591a1b8a5a5ffb4b5a4">[email&#160;protected]</a></p>
+            <p style="color: var(--gray-300); margin-top: 0.5rem; font-size: 0.875rem;">© 2025 University of Pittsburgh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <!-- JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation Toggle
+        function toggleNav() {
+            const navList = document.getElementById('navList');
+            const navToggle = document.querySelector('.nav-toggle');
+            navList.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        }
+
+        // Back to Top Button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('navList').classList.remove('active');
+                        document.querySelector('.nav-toggle').classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.nav');
+            const navList = document.getElementById('navList');
+            
+            if (!nav.contains(event.target
