@@ -1990,6 +1990,1280 @@
             </div>
         </section>
 
+        
+        <!-- Graduate Enrollment Journey Quest - Embeddable Version -->
+<!-- Add this div anywhere in your page where you want the game to appear -->
+
+<div id="enrollmentJourneyGame">
+    <style>
+        /* Scoped styles for the game */
+        #enrollmentJourneyGame {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #003594 0%, #FFB81C 100%);
+            padding: 40px 20px;
+            color: #333;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        #enrollmentJourneyGame * {
+            box-sizing: border-box;
+        }
+
+        #enrollmentJourneyGame .ejg-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #enrollmentJourneyGame .ejg-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        #enrollmentJourneyGame .ejg-header h1 {
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #enrollmentJourneyGame .ejg-header p {
+            font-size: 1.2em;
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        #enrollmentJourneyGame .ejg-score-board {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        #enrollmentJourneyGame .ejg-score-item {
+            text-align: center;
+        }
+
+        #enrollmentJourneyGame .ejg-score-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        #enrollmentJourneyGame .ejg-score-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #003594;
+        }
+
+        #enrollmentJourneyGame .ejg-progress-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #enrollmentJourneyGame .ejg-progress-fill {
+            background: linear-gradient(90deg, #FFB81C 0%, #FFA500 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        #enrollmentJourneyGame .ejg-game-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            min-height: 500px;
+        }
+
+        #enrollmentJourneyGame .ejg-screen {
+            display: none;
+        }
+
+        #enrollmentJourneyGame .ejg-screen.active {
+            display: block;
+            animation: ejgFadeIn 0.3s ease;
+        }
+
+        @keyframes ejgFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #enrollmentJourneyGame .ejg-start-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        #enrollmentJourneyGame .ejg-start-screen h2 {
+            color: #003594;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        #enrollmentJourneyGame .ejg-start-screen p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        #enrollmentJourneyGame .ejg-start-btn {
+            background: linear-gradient(135deg, #003594 0%, #0059B3 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 6px 20px rgba(0, 53, 148, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #enrollmentJourneyGame .ejg-start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 53, 148, 0.4);
+        }
+
+        #enrollmentJourneyGame .ejg-challenge-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #enrollmentJourneyGame .ejg-challenge-number {
+            color: #FFB81C;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        #enrollmentJourneyGame .ejg-challenge-title {
+            color: #003594;
+            font-size: 1.8em;
+            margin: 10px 0;
+        }
+
+        #enrollmentJourneyGame .ejg-scenario-box {
+            background: #f8f9fa;
+            border-left: 5px solid #003594;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        #enrollmentJourneyGame .ejg-options-grid {
+            display: grid;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        #enrollmentJourneyGame .ejg-option-card {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        #enrollmentJourneyGame .ejg-option-card:hover {
+            border-color: #003594;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 53, 148, 0.2);
+        }
+
+        #enrollmentJourneyGame .ejg-option-card.selected {
+            border-color: #003594;
+            background: #f0f7ff;
+        }
+
+        #enrollmentJourneyGame .ejg-option-card.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            animation: ejgCorrectPulse 0.5s ease;
+        }
+
+        #enrollmentJourneyGame .ejg-option-card.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            animation: ejgShake 0.5s ease;
+        }
+
+        @keyframes ejgCorrectPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes ejgShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        #enrollmentJourneyGame .ejg-option-label {
+            font-weight: bold;
+            color: #003594;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        #enrollmentJourneyGame .ejg-option-text {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-box {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-box.show {
+            display: block;
+            animation: ejgSlideDown 0.3s ease;
+        }
+
+        @keyframes ejgSlideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-box.correct {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-box.incorrect {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-box.correct .ejg-feedback-title {
+            color: #155724;
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-box.incorrect .ejg-feedback-title {
+            color: #721c24;
+        }
+
+        #enrollmentJourneyGame .ejg-feedback-text {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        #enrollmentJourneyGame .ejg-key-insight {
+            background: #fff3cd;
+            border-left: 4px solid #FFB81C;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        #enrollmentJourneyGame .ejg-key-insight strong {
+            color: #856404;
+        }
+
+        #enrollmentJourneyGame .ejg-action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        #enrollmentJourneyGame .ejg-btn {
+            padding: 15px 35px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        #enrollmentJourneyGame .ejg-btn-primary {
+            background: linear-gradient(135deg, #003594 0%, #0059B3 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 53, 148, 0.3);
+        }
+
+        #enrollmentJourneyGame .ejg-btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 53, 148, 0.4);
+        }
+
+        #enrollmentJourneyGame .ejg-btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #enrollmentJourneyGame .ejg-btn-secondary {
+            background: white;
+            color: #003594;
+            border: 2px solid #003594;
+        }
+
+        #enrollmentJourneyGame .ejg-btn-secondary:hover {
+            background: #f0f7ff;
+        }
+
+        #enrollmentJourneyGame .ejg-results-screen {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #enrollmentJourneyGame .ejg-results-screen h2 {
+            color: #003594;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #enrollmentJourneyGame .ejg-final-score {
+            font-size: 4em;
+            font-weight: bold;
+            color: #FFB81C;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #enrollmentJourneyGame .ejg-performance-message {
+            font-size: 1.4em;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        #enrollmentJourneyGame .ejg-journey-summary {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        #enrollmentJourneyGame .ejg-journey-summary h3 {
+            color: #003594;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            text-align: center;
+        }
+
+        #enrollmentJourneyGame .ejg-stage-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #enrollmentJourneyGame .ejg-stage-row:last-child {
+            border-bottom: none;
+        }
+
+        #enrollmentJourneyGame .ejg-stage-number {
+            background: #003594;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        #enrollmentJourneyGame .ejg-stage-name {
+            font-weight: bold;
+            color: #003594;
+            flex: 1;
+        }
+
+        #enrollmentJourneyGame .ejg-stage-arrow {
+            color: #FFB81C;
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+
+        #enrollmentJourneyGame .ejg-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 5px;
+            font-size: 1.1em;
+        }
+
+        #enrollmentJourneyGame .ejg-badge-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #333;
+        }
+
+        #enrollmentJourneyGame .ejg-badge-silver {
+            background: linear-gradient(135deg, #C0C0C0 0%, #A8A8A8 100%);
+            color: #333;
+        }
+
+        #enrollmentJourneyGame .ejg-badge-bronze {
+            background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%);
+            color: white;
+        }
+
+        #enrollmentJourneyGame .ejg-match-game {
+            margin: 30px 0;
+        }
+
+        #enrollmentJourneyGame .ejg-match-instruction {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        #enrollmentJourneyGame .ejg-match-pairs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        #enrollmentJourneyGame .ejg-match-column h3 {
+            color: #003594;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        #enrollmentJourneyGame .ejg-match-item {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        #enrollmentJourneyGame .ejg-match-item:hover {
+            border-color: #003594;
+            transform: scale(1.02);
+        }
+
+        #enrollmentJourneyGame .ejg-match-item.selected {
+            border-color: #FFB81C;
+            background: #fff8e1;
+            box-shadow: 0 4px 15px rgba(255, 184, 28, 0.3);
+        }
+
+        #enrollmentJourneyGame .ejg-match-item.matched {
+            border-color: #28a745;
+            background: #d4edda;
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        #enrollmentJourneyGame .ejg-sequence-game {
+            margin: 30px 0;
+        }
+
+        #enrollmentJourneyGame .ejg-draggable-list {
+            margin: 30px 0;
+        }
+
+        #enrollmentJourneyGame .ejg-drag-item {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            cursor: move;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #enrollmentJourneyGame .ejg-drag-item:hover {
+            border-color: #003594;
+            box-shadow: 0 4px 15px rgba(0, 53, 148, 0.2);
+        }
+
+        #enrollmentJourneyGame .ejg-drag-item.dragging {
+            opacity: 0.5;
+            transform: scale(1.05);
+        }
+
+        #enrollmentJourneyGame .ejg-drag-handle {
+            font-size: 1.5em;
+            color: #999;
+        }
+
+        #enrollmentJourneyGame .ejg-drag-content {
+            flex: 1;
+        }
+
+        #enrollmentJourneyGame .ejg-celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5em;
+            animation: ejgCelebrate 1s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @keyframes ejgCelebrate {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            #enrollmentJourneyGame .ejg-header h1 {
+                font-size: 1.8em;
+            }
+
+            #enrollmentJourneyGame .ejg-game-container {
+                padding: 25px;
+            }
+
+            #enrollmentJourneyGame .ejg-match-pairs {
+                grid-template-columns: 1fr;
+            }
+
+            #enrollmentJourneyGame .ejg-score-board {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <div class="ejg-container">
+        <div class="ejg-header">
+            <h1>🎓 Graduate Enrollment Journey Quest</h1>
+            <p>Test your knowledge and master the student journey.</p>
+        </div>
+
+        <div class="ejg-score-board">
+            <div class="ejg-score-item">
+                <div class="ejg-score-label">Score</div>
+                <div class="ejg-score-value" id="ejgScoreDisplay">0</div>
+            </div>
+            <div class="ejg-score-item" style="flex: 1; min-width: 200px;">
+                <div class="ejg-score-label">Progress</div>
+                <div class="ejg-progress-bar">
+                    <div class="ejg-progress-fill" id="ejgProgressBar">0%</div>
+                </div>
+            </div>
+            <div class="ejg-score-item">
+                <div class="ejg-score-label">Stage</div>
+                <div class="ejg-score-value" id="ejgStageDisplay">1/9</div>
+            </div>
+        </div>
+
+        <div class="ejg-game-container">
+            <!-- Start Screen -->
+            <div class="ejg-screen active" id="ejgStartScreen">
+                <div class="ejg-start-screen">
+                    <h2>Welcome, Enrollment Professional! 👋</h2>
+                    <p>Test your knowledge of the graduate student journey through interactive challenges.</p>
+                    <p><strong>You'll navigate through:</strong></p>
+                    <div style="text-align: left; max-width: 600px; margin: 30px auto; font-size: 1.1em;">
+                        <p>✅ Real-world scenarios at each journey stage</p>
+                        <p>✅ Matching student behaviors to funnel stages</p>
+                        <p>✅ Sequencing the 9-stage enrollment journey</p>
+                        <p>✅ Understanding key conversion points</p>
+                    </div>
+                    <button class="ejg-start-btn" onclick="EJG.startGame()">🚀 Begin Your Quest</button>
+                </div>
+            </div>
+
+            <!-- Challenge Screens -->
+            <div class="ejg-screen" id="ejgChallengeScreen">
+                <div class="ejg-challenge-header">
+                    <div class="ejg-challenge-number" id="ejgChallengeNumber">Challenge 1 of 9</div>
+                    <h2 class="ejg-challenge-title" id="ejgChallengeTitle"></h2>
+                </div>
+                <div class="ejg-scenario-box" id="ejgScenarioText"></div>
+                <div class="ejg-options-grid" id="ejgOptionsGrid"></div>
+                <div class="ejg-feedback-box" id="ejgFeedbackBox"></div>
+                <div class="ejg-action-buttons">
+                    <button class="ejg-btn ejg-btn-primary" id="ejgSubmitBtn" onclick="EJG.submitAnswer()" disabled>Submit Answer</button>
+                    <button class="ejg-btn ejg-btn-primary" id="ejgNextBtn" onclick="EJG.nextChallenge()" style="display: none;">Next Challenge →</button>
+                </div>
+            </div>
+
+            <!-- Match Game Screen -->
+            <div class="ejg-screen" id="ejgMatchScreen">
+                <div class="ejg-challenge-header">
+                    <div class="ejg-challenge-number">Bonus Challenge: Stage Matching</div>
+                    <h2 class="ejg-challenge-title">Match Student Behaviors to Journey Stages</h2>
+                </div>
+                <div class="ejg-match-instruction">
+                    Click a behavior on the left, then click the matching stage on the right
+                </div>
+                <div class="ejg-match-game">
+                    <div class="ejg-match-pairs" id="ejgMatchPairs"></div>
+                </div>
+                <div class="ejg-feedback-box" id="ejgMatchFeedback"></div>
+                <div class="ejg-action-buttons">
+                    <button class="ejg-btn ejg-btn-primary" id="ejgMatchNextBtn" onclick="EJG.nextToSequence()" style="display: none;">Continue to Final Challenge →</button>
+                </div>
+            </div>
+
+            <!-- Sequence Game Screen -->
+            <div class="ejg-screen" id="ejgSequenceScreen">
+                <div class="ejg-challenge-header">
+                    <div class="ejg-challenge-number">Final Challenge: Journey Sequencing</div>
+                    <h2 class="ejg-challenge-title">Put the Student Journey in Order</h2>
+                </div>
+                <div class="ejg-match-instruction">
+                    Drag and drop to arrange the stages from first to last
+                </div>
+                <div class="ejg-sequence-game">
+                    <div class="ejg-draggable-list" id="ejgDraggableList"></div>
+                </div>
+                <div class="ejg-action-buttons">
+                    <button class="ejg-btn ejg-btn-primary" onclick="EJG.checkSequence()">Check My Order</button>
+                    <button class="ejg-btn ejg-btn-primary" id="ejgSequenceNextBtn" onclick="EJG.showResults()" style="display: none;">See My Results →</button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div class="ejg-screen" id="ejgResultsScreen">
+                <div class="ejg-results-screen">
+                    <h2>Quest Complete! 🎉</h2>
+                    <div class="ejg-final-score" id="ejgFinalScore">0/1000</div>
+                    <div class="ejg-performance-message" id="ejgPerformanceMessage"></div>
+                    <div id="ejgBadgeDisplay"></div>
+                    
+                    <div class="ejg-journey-summary">
+                        <h3>The 9-Stage Graduate Enrollment Journey</h3>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">1</div>
+                            <div class="ejg-stage-name">Awareness</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">2</div>
+                            <div class="ejg-stage-name">Consider</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">3</div>
+                            <div class="ejg-stage-name">Engage</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">4</div>
+                            <div class="ejg-stage-name">Decision</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">5</div>
+                            <div class="ejg-stage-name">Applying</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">6</div>
+                            <div class="ejg-stage-name">Admissions</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">7</div>
+                            <div class="ejg-stage-name">Decision/Offer</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">8</div>
+                            <div class="ejg-stage-name">Accepts/Deposits</div>
+                            <div class="ejg-stage-arrow">→</div>
+                        </div>
+                        <div class="ejg-stage-row">
+                            <div class="ejg-stage-number">9</div>
+                            <div class="ejg-stage-name">Enroll</div>
+                        </div>
+                    </div>
+
+                    <div class="ejg-action-buttons">
+                        <button class="ejg-btn ejg-btn-secondary" onclick="EJG.resetGame()">Play Again</button>
+                        <button class="ejg-btn ejg-btn-primary" onclick="window.open('https://mrs409pitt.github.io/graduate-enrollment-definitions/', '_blank')">View Full Guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enrollment Journey Game - Namespaced to avoid conflicts
+        const EJG = (function() {
+            // Game State
+            let currentChallenge = 0;
+            let score = 0;
+            let selectedAnswer = null;
+            let matchedPairs = 0;
+            let selectedBehavior = null;
+            let selectedStage = null;
+            let draggedItem = null;
+
+            // Challenge Data
+            const challenges = [
+                {
+                    title: "Stage 1: Awareness",
+                    scenario: "Sarah is a physical therapist browsing social media during her lunch break when she sees a sponsored post about earning an advanced degree while working full-time. She clicks to learn more about online healthcare programs.",
+                    question: "What stage of the enrollment journey is Sarah in?",
+                    options: [
+                        { label: "Awareness", text: "Sarah just became aware of graduate program options", correct: true },
+                        { label: "Consider", text: "Sarah is actively researching specific programs", correct: false },
+                        { label: "Engage", text: "Sarah is building a relationship with the institution", correct: false },
+                        { label: "Decision", text: "Sarah is evaluating programs against alternatives", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Excellent! Sarah is in the Awareness stage. She's just discovering that graduate programs exist that might fit her needs. At this stage, prospects are forming initial impressions and learning about possibilities.",
+                        incorrect: "Not quite. Sarah hasn't yet started comparing specific programs or engaging deeply. She's at the very beginning—just discovering that graduate education options exist for working professionals."
+                    },
+                    insight: "The Awareness stage is where marketing efforts drive initial discovery through ads, SEO, and brand campaigns. Success here is measured by website traffic and reach metrics."
+                },
+                {
+                    title: "Stage 2: Consider",
+                    scenario: "Marcus has decided he wants to pursue a master's in data science. He's visiting multiple university websites, comparing program curricula, reading blog posts about different specializations, and watching YouTube videos about career outcomes.",
+                    question: "What stage is Marcus in?",
+                    options: [
+                        { label: "Awareness", text: "Marcus is just learning programs exist", correct: false },
+                        { label: "Consider", text: "Marcus is actively researching and comparing options", correct: true },
+                        { label: "Engage", text: "Marcus has submitted an inquiry and is in active dialogue", correct: false },
+                        { label: "Decision", text: "Marcus is ready to apply to specific programs", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Perfect! Marcus is in the Consider stage. He knows what he wants (a master's in data science) and is actively researching different programs and options. Content marketing and SEO are crucial here.",
+                        incorrect: "Marcus has moved past just being aware—he's actively researching. But he hasn't yet reached out to schools or started narrowing down to specific choices. He's still in the research and comparison phase."
+                    },
+                    insight: "The Consider stage is where content quality matters most. Program pages, student testimonials, and informational resources help prospects evaluate if your programs fit their goals."
+                },
+                {
+                    title: "Stage 3: Engage",
+                    scenario: "After researching several programs, Jessica submits a request for information form for Pitt's MSN program. An enrollment counselor calls her the next day to discuss her career goals, and Jessica signs up for an upcoming virtual information session.",
+                    question: "What stage is Jessica in now?",
+                    options: [
+                        { label: "Consider", text: "Jessica is still broadly researching options", correct: false },
+                        { label: "Engage", text: "Jessica is building a relationship and diving deeper", correct: true },
+                        { label: "Decision", text: "Jessica is comparing final offers", correct: false },
+                        { label: "Applying", text: "Jessica is working on her application", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Exactly right! Jessica has moved into the Engage stage by submitting an RFI and connecting with an enrollment counselor. She's now in active dialogue and exploring this specific program more deeply.",
+                        incorrect: "Jessica has taken action—she submitted a form and is now in conversation with Pitt. This is more than passive research; it's active engagement with the institution to learn more about a specific program."
+                    },
+                    insight: "The Engage stage is where personalized communication begins. Email nurturing, counselor consultations, and webinars help prospects understand how your program fits their specific situation."
+                },
+                {
+                    title: "Stage 4: Decision",
+                    scenario: "David has narrowed his choices to three online MBA programs. He's comparing financial aid packages, talking with faculty members at each school, and discussing the decision with his family. He's seriously evaluating which program to apply to.",
+                    question: "What stage is David in?",
+                    options: [
+                        { label: "Engage", text: "David is just starting to learn about programs", correct: false },
+                        { label: "Decision", text: "David is seriously evaluating specific programs against each other", correct: true },
+                        { label: "Applying", text: "David has started his application", correct: false },
+                        { label: "Admissions", text: "David's application is under review", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Spot on! David is in the Decision stage—seriously evaluating specific programs against alternatives. This is when detailed program information, financial aid clarity, and personalized interactions are most critical.",
+                        incorrect: "David has moved past general exploration. He's narrowed his choices and is making serious comparisons between specific programs before deciding where to apply. This is the critical decision-making stage."
+                    },
+                    insight: "The Decision stage is where prospects need the most detailed information and support. Faculty connections, financial aid details, and clear differentiation help them choose your program."
+                },
+                {
+                    title: "Stage 5: Applying",
+                    scenario: "After deciding on Pitt's Health Informatics program, Keisha starts her online application. Over the next two weeks, she gathers her transcripts, asks former professors for letters of recommendation, and writes her personal statement.",
+                    question: "What stage is Keisha in?",
+                    options: [
+                        { label: "Decision", text: "Keisha is still deciding where to apply", correct: false },
+                        { label: "Applying", text: "Keisha is actively working on her application", correct: true },
+                        { label: "Admissions", text: "Keisha's application is being reviewed", correct: false },
+                        { label: "Accepts/Deposits", text: "Keisha has committed to enroll", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Correct! Keisha is in the Applying stage. She's made her decision and is now working through the application process. Application support, progress reminders, and deadline tracking are key here.",
+                        incorrect: "Keisha has already decided to apply to Pitt—she's not still making that choice. She's actively working on gathering materials and completing her application. This is the Applying stage."
+                    },
+                    insight: "The Applying stage requires strong application support. Progress reminders, requirements checklists, and clear guidance help applicants complete their materials and submit on time."
+                },
+                {
+                    title: "Stage 6: Admissions",
+                    scenario: "After submitting her complete application, Amanda's materials are being reviewed by the admissions committee. The committee evaluates her academic background, work experience, and personal statement to make an admission decision.",
+                    question: "What stage is Amanda in?",
+                    options: [
+                        { label: "Applying", text: "Amanda is still working on her application", correct: false },
+                        { label: "Admissions", text: "Amanda's application is under review for a decision", correct: true },
+                        { label: "Decision/Offer", text: "Amanda has been admitted and is deciding whether to accept", correct: false },
+                        { label: "Enroll", text: "Amanda has completed enrollment and will begin classes", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Perfect! Amanda is in the Admissions stage. Her complete application is being evaluated, and a decision is being made. Communication about timeline and next steps is important to keep applicants informed.",
+                        incorrect: "Amanda has already submitted her complete application—she's not still working on it. And she hasn't received a decision yet. She's in the evaluation and review phase: the Admissions stage."
+                    },
+                    insight: "The Admissions stage is when evaluation happens. Quick decision turnaround time and clear communication about process and timeline help maintain applicant interest and reduce anxiety."
+                },
+                {
+                    title: "Stage 7: Decision/Offer",
+                    scenario: "Robert receives his admission letter from Pitt's MS in Data Analytics program along with a scholarship offer. He also has offers from two other universities. He's now comparing the programs, aid packages, and outcomes to decide where he'll enroll.",
+                    question: "What stage is Robert in?",
+                    options: [
+                        { label: "Admissions", text: "Robert's application is being reviewed", correct: false },
+                        { label: "Decision/Offer", text: "Robert has been admitted and is deciding whether to accept", correct: true },
+                        { label: "Accepts/Deposits", text: "Robert has already committed to Pitt", correct: false },
+                        { label: "Enroll", text: "Robert is completing enrollment requirements", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Excellent! Robert is in the Decision/Offer stage. He's been admitted (with financial aid) and is now evaluating his options. Yield communications, admitted student events, and personalized outreach are crucial now.",
+                        incorrect: "Robert has already been admitted—that decision has been made. But he hasn't committed yet. He's evaluating his options as an admitted student. This is the Decision/Offer stage, where yield efforts matter most."
+                    },
+                    insight: "The Decision/Offer stage is where yield efforts happen. Admitted student webinars, faculty connections, and clear enrollment steps help convert admitted students into enrolled students."
+                },
+                {
+                    title: "Stage 8: Accepts/Deposits",
+                    scenario: "After careful consideration, Maria decides to accept Pitt's offer. She submits her enrollment deposit, confirms her intention to attend, and receives her welcome packet with next steps for completing enrollment forms and registering for orientation.",
+                    question: "What stage is Maria in?",
+                    options: [
+                        { label: "Decision/Offer", text: "Maria is still deciding whether to accept", correct: false },
+                        { label: "Accepts/Deposits", text: "Maria has accepted the offer and submitted her deposit", correct: true },
+                        { label: "Enroll", text: "Maria has completed all enrollment steps and is ready for classes", correct: false },
+                        { label: "Awareness", text: "Maria is just learning about programs", correct: false }
+                    ],
+                    feedback: {
+                        correct: "Perfect! Maria is in the Accepts/Deposits stage. She's committed by submitting her deposit but still needs to complete additional enrollment requirements. Preventing 'summer melt' becomes the priority now.",
+                        incorrect: "Maria has already made her decision and submitted her deposit—she's committed. But she hasn't completed all enrollment requirements yet. This is the Accepts/Deposits stage, where melt prevention is critical."
+                    },
+                    insight: "The Accepts/Deposits stage requires consistent communication to prevent 'melt.' Clear checklists, timely reminders, and proactive support help ensure deposited students actually enroll."
+                }
+            ];
+
+            const matchPairs = [
+                { behavior: "Clicks a LinkedIn ad for graduate programs", stage: "Awareness" },
+                { behavior: "Downloads a program brochure and curriculum guide", stage: "Consider" },
+                { behavior: "Registers for a virtual information session", stage: "Engage" },
+                { behavior: "Uploads transcripts and letters of recommendation", stage: "Applying" },
+                { behavior: "Receives admission decision email", stage: "Admissions" },
+                { behavior: "Submits enrollment deposit and confirms intent", stage: "Accepts/Deposits" }
+            ];
+
+            const sequenceStages = [
+                { id: 1, name: "Awareness", description: "First learns programs exist" },
+                { id: 2, name: "Consider", description: "Actively researches options" },
+                { id: 3, name: "Engage", description: "Submits RFI and connects" },
+                { id: 4, name: "Decision", description: "Evaluates specific programs" },
+                { id: 5, name: "Applying", description: "Works on application" },
+                { id: 6, name: "Admissions", description: "Under review for decision" },
+                { id: 7, name: "Decision/Offer", description: "Evaluates admission offer" },
+                { id: 8, name: "Accepts/Deposits", description: "Commits with deposit" },
+                { id: 9, name: "Enroll", description: "Completes enrollment" }
+            ];
+
+            function showScreen(screenId) {
+                document.querySelectorAll('#enrollmentJourneyGame .ejg-screen').forEach(s => s.classList.remove('active'));
+                document.getElementById(screenId).classList.add('active');
+            }
+
+            function startGame() {
+                showScreen('ejgChallengeScreen');
+                loadChallenge(0);
+            }
+
+            function loadChallenge(index) {
+                currentChallenge = index;
+                const challenge = challenges[index];
+                
+                document.getElementById('ejgChallengeNumber').textContent = `Challenge ${index + 1} of ${challenges.length}`;
+                document.getElementById('ejgChallengeTitle').textContent = challenge.title;
+                document.getElementById('ejgScenarioText').textContent = challenge.scenario;
+                
+                const optionsGrid = document.getElementById('ejgOptionsGrid');
+                optionsGrid.innerHTML = '';
+                
+                challenge.options.forEach((option, i) => {
+                    const optionCard = document.createElement('div');
+                    optionCard.className = 'ejg-option-card';
+                    optionCard.onclick = () => selectOption(i);
+                    optionCard.innerHTML = `
+                        <div class="ejg-option-label">${option.label}</div>
+                        <div class="ejg-option-text">${option.text}</div>
+                    `;
+                    optionsGrid.appendChild(optionCard);
+                });
+                
+                document.getElementById('ejgFeedbackBox').classList.remove('show');
+                document.getElementById('ejgSubmitBtn').disabled = true;
+                document.getElementById('ejgSubmitBtn').style.display = 'inline-block';
+                document.getElementById('ejgNextBtn').style.display = 'none';
+                selectedAnswer = null;
+                
+                updateProgress();
+            }
+
+            function selectOption(index) {
+                selectedAnswer = index;
+                document.querySelectorAll('#ejgOptionsGrid .ejg-option-card').forEach((card, i) => {
+                    card.classList.toggle('selected', i === index);
+                });
+                document.getElementById('ejgSubmitBtn').disabled = false;
+            }
+
+            function submitAnswer() {
+                const challenge = challenges[currentChallenge];
+                const isCorrect = challenge.options[selectedAnswer].correct;
+                
+                document.querySelectorAll('#ejgOptionsGrid .ejg-option-card').forEach((card, i) => {
+                    card.onclick = null;
+                    if (challenge.options[i].correct) {
+                        card.classList.add('correct');
+                    } else if (i === selectedAnswer) {
+                        card.classList.add('incorrect');
+                    }
+                });
+                
+                if (isCorrect) {
+                    score += 100;
+                    showCelebration('🎉');
+                }
+                
+                const feedbackBox = document.getElementById('ejgFeedbackBox');
+                feedbackBox.className = 'ejg-feedback-box show ' + (isCorrect ? 'correct' : 'incorrect');
+                feedbackBox.innerHTML = `
+                    <div class="ejg-feedback-title">${isCorrect ? '✓ Correct!' : '✗ Not Quite'}</div>
+                    <div class="ejg-feedback-text">
+                        ${isCorrect ? challenge.feedback.correct : challenge.feedback.incorrect}
+                    </div>
+                    <div class="ejg-key-insight">
+                        <strong>💡 Key Insight:</strong> ${challenge.insight}
+                    </div>
+                `;
+                
+                document.getElementById('ejgSubmitBtn').style.display = 'none';
+                document.getElementById('ejgNextBtn').style.display = 'inline-block';
+                
+                updateScore();
+            }
+
+            function nextChallenge() {
+                if (currentChallenge < challenges.length - 1) {
+                    loadChallenge(currentChallenge + 1);
+                } else {
+                    showMatchGame();
+                }
+            }
+
+            function showMatchGame() {
+                showScreen('ejgMatchScreen');
+                
+                const shuffledBehaviors = [...matchPairs].sort(() => Math.random() - 0.5);
+                const shuffledStages = [...matchPairs].sort(() => Math.random() - 0.5);
+                
+                const matchPairsDiv = document.getElementById('ejgMatchPairs');
+                matchPairsDiv.innerHTML = `
+                    <div class="ejg-match-column">
+                        <h3>Student Behaviors</h3>
+                        ${shuffledBehaviors.map((pair, i) => `
+                            <div class="ejg-match-item" data-behavior="${pair.stage}" onclick="EJG.selectBehavior(this)">
+                                ${pair.behavior}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="ejg-match-column">
+                        <h3>Journey Stages</h3>
+                        ${shuffledStages.map((pair, i) => `
+                            <div class="ejg-match-item" data-stage="${pair.stage}" onclick="EJG.selectStage(this)">
+                                ${pair.stage}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                matchedPairs = 0;
+                updateProgress();
+            }
+
+            function selectBehavior(element) {
+                if (element.classList.contains('matched')) return;
+                
+                document.querySelectorAll('#ejgMatchPairs [data-behavior]').forEach(el => {
+                    el.classList.remove('selected');
+                });
+                element.classList.add('selected');
+                selectedBehavior = element;
+                
+                checkMatch();
+            }
+
+            function selectStage(element) {
+                if (element.classList.contains('matched')) return;
+                
+                document.querySelectorAll('#ejgMatchPairs [data-stage]').forEach(el => {
+                    el.classList.remove('selected');
+                });
+                element.classList.add('selected');
+                selectedStage = element;
+                
+                checkMatch();
+            }
+
+            function checkMatch() {
+                if (!selectedBehavior || !selectedStage) return;
+                
+                const behaviorStage = selectedBehavior.dataset.behavior;
+                const stageStage = selectedStage.dataset.stage;
+                
+                if (behaviorStage === stageStage) {
+                    selectedBehavior.classList.add('matched');
+                    selectedStage.classList.add('matched');
+                    selectedBehavior.classList.remove('selected');
+                    selectedStage.classList.remove('selected');
+                    
+                    matchedPairs++;
+                    score += 50;
+                    updateScore();
+                    showCelebration('✓');
+                    
+                    if (matchedPairs === matchPairs.length) {
+                        setTimeout(() => {
+                            const feedbackBox = document.getElementById('ejgMatchFeedback');
+                            feedbackBox.className = 'ejg-feedback-box show correct';
+                            feedbackBox.innerHTML = `
+                                <div class="ejg-feedback-title">🎯 Perfect Matching!</div>
+                                <div class="ejg-feedback-text">
+                                    You've successfully matched all behaviors to their corresponding journey stages. Understanding these connections helps you deliver the right message at the right time.
+                                </div>
+                            `;
+                            document.getElementById('ejgMatchNextBtn').style.display = 'inline-block';
+                        }, 500);
+                    }
+                } else {
+                    selectedBehavior.classList.remove('selected');
+                    selectedStage.classList.remove('selected');
+                }
+                
+                selectedBehavior = null;
+                selectedStage = null;
+            }
+
+            function nextToSequence() {
+                showScreen('ejgSequenceScreen');
+                setupDragDrop();
+                updateProgress();
+            }
+
+            function setupDragDrop() {
+                const shuffled = [...sequenceStages].sort(() => Math.random() - 0.5);
+                const listDiv = document.getElementById('ejgDraggableList');
+                
+                listDiv.innerHTML = shuffled.map(stage => `
+                    <div class="ejg-drag-item" draggable="true" data-id="${stage.id}">
+                        <span class="ejg-drag-handle">⋮⋮</span>
+                        <div class="ejg-drag-content">
+                            <strong>${stage.name}</strong>
+                            <div style="color: #666; font-size: 0.9em;">${stage.description}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                const items = listDiv.querySelectorAll('.ejg-drag-item');
+                items.forEach(item => {
+                    item.addEventListener('dragstart', handleDragStart);
+                    item.addEventListener('dragend', handleDragEnd);
+                    item.addEventListener('dragover', handleDragOver);
+                    item.addEventListener('drop', handleDrop);
+                });
+            }
+
+            function handleDragStart(e) {
+                draggedItem = this;
+                this.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+            }
+
+            function handleDragEnd(e) {
+                this.classList.remove('dragging');
+            }
+
+            function handleDragOver(e) {
+                if (e.preventDefault) {
+                    e.preventDefault();
+                }
+                e.dataTransfer.dropEffect = 'move';
+                return false;
+            }
+
+            function handleDrop(e) {
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                }
+                
+                if (draggedItem !== this) {
+                    const list = document.getElementById('ejgDraggableList');
+                    const allItems = [...list.querySelectorAll('.ejg-drag-item')];
+                    const draggedIndex = allItems.indexOf(draggedItem);
+                    const targetIndex = allItems.indexOf(this);
+                    
+                    if (draggedIndex < targetIndex) {
+                        this.parentNode.insertBefore(draggedItem, this.nextSibling);
+                    } else {
+                        this.parentNode.insertBefore(draggedItem, this);
+                    }
+                }
+                
+                return false;
+            }
+
+            function checkSequence() {
+                const items = document.querySelectorAll('#ejgDraggableList .ejg-drag-item');
+                let correct = true;
+                
+                items.forEach((item, index) => {
+                    const expectedId = index + 1;
+                    const actualId = parseInt(item.dataset.id);
+                    
+                    if (expectedId === actualId) {
+                        item.style.borderColor = '#28a745';
+                        item.style.background = '#d4edda';
+                    } else {
+                        item.style.borderColor = '#dc3545';
+                        item.style.background = '#f8d7da';
+                        correct = false;
+                    }
+                });
+                
+                if (correct) {
+                    score += 200;
+                    updateScore();
+                    showCelebration('🏆');
+                    
+                    setTimeout(() => {
+                        alert('Perfect sequence! You\'ve mastered the 9-stage enrollment journey. Let\'s see your final results!');
+                        document.getElementById('ejgSequenceNextBtn').style.display = 'inline-block';
+                    }, 500);
+                } else {
+                    alert('Not quite right. Review the order and try again. Remember: Awareness → Consider → Engage → Decision → Applying → Admissions → Decision/Offer → Accepts/Deposits → Enroll');
+                }
+            }
+
+            function showResults() {
+                showScreen('ejgResultsScreen');
+                
+                const maxScore = 1100;
+                const finalScore = document.getElementById('ejgFinalScore');
+                finalScore.textContent = `${score}/${maxScore}`;
+                
+                const percentage = (score / maxScore) * 100;
+                let message = '';
+                let badge = '';
+                
+                if (percentage >= 90) {
+                    message = 'Outstanding! You\'re an enrollment journey expert! 🌟';
+                    badge = '<div class="ejg-badge ejg-badge-gold">🏆 Gold Expert Badge</div>';
+                } else if (percentage >= 75) {
+                    message = 'Great work! You have a strong grasp of the student journey. 🎯';
+                    badge = '<div class="ejg-badge ejg-badge-silver">🥈 Silver Proficiency Badge</div>';
+                } else if (percentage >= 60) {
+                    message = 'Good effort! Review the journey stages to strengthen your knowledge. 💪';
+                    badge = '<div class="ejg-badge ejg-badge-bronze">🥉 Bronze Achievement Badge</div>';
+                } else {
+                    message = 'Keep learning! Review the full guide to master the enrollment journey. 📚';
+                    badge = '<div class="ejg-badge ejg-badge-bronze">🎓 Learner Badge</div>';
+                }
+                
+                document.getElementById('ejgPerformanceMessage').textContent = message;
+                document.getElementById('ejgBadgeDisplay').innerHTML = badge;
+                
+                updateProgress();
+            }
+
+            function updateScore() {
+                document.getElementById('ejgScoreDisplay').textContent = score;
+            }
+
+            function updateProgress() {
+                let progress = 0;
+                
+                if (currentChallenge < challenges.length) {
+                    progress = ((currentChallenge + 1) / challenges.length) * 50;
+                    document.getElementById('ejgStageDisplay').textContent = `${currentChallenge + 1}/${challenges.length}`;
+                } else if (matchedPairs < matchPairs.length) {
+                    progress = 50 + ((matchedPairs / matchPairs.length) * 25);
+                    document.getElementById('ejgStageDisplay').textContent = 'Matching';
+                } else {
+                    progress = 75 + 25;
+                    document.getElementById('ejgStageDisplay').textContent = 'Complete';
+                }
+                
+                const progressBar = document.getElementById('ejgProgressBar');
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = Math.round(progress) + '%';
+            }
+
+            function showCelebration(emoji) {
+                const celebration = document.createElement('div');
+                celebration.className = 'ejg-celebration';
+                celebration.textContent = emoji;
+                document.body.appendChild(celebration);
+                
+                setTimeout(() => {
+                    celebration.remove();
+                }, 1000);
+            }
+
+            function resetGame() {
+                currentChallenge = 0;
+                score = 0;
+                selectedAnswer = null;
+                matchedPairs = 0;
+                selectedBehavior = null;
+                selectedStage = null;
+                
+                updateScore();
+                showScreen('ejgStartScreen');
+            }
+
+            // Public API
+            return {
+                startGame,
+                submitAnswer,
+                nextChallenge,
+                selectBehavior,
+                selectStage,
+                nextToSequence,
+                checkSequence,
+                showResults,
+                resetGame
+            };
+        })();
+    </script>
+</div>
+
+                    
     </div>
 
     <!-- Footer -->
